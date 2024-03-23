@@ -67,6 +67,21 @@ class LinkedList {
         return linkedList
     } 
 
+    var currentAt = 0
+    fun removeElement(at: Int): LinkedList {
+        val linkedList = LinkedList()
+
+        var a = head
+        while(a != null) {
+            if (currentAt != at) {
+                linkedList.insertBack(a.data)
+            }
+            currentAt++
+            a = a.next
+        }
+        return linkedList
+    }
+
     override fun toString(): String {
         val str = StringBuilder()
         var temp = head
@@ -81,11 +96,12 @@ class LinkedList {
 }
 
 val linkedList = LinkedList()
-for(i in 1..10) {
-    linkedList.insertFront(i)
+for(i in 0..10) {
+    linkedList.insertBack(i)
 }
 
 var reversed = linkedList
+var remove = linkedList.removeElement(2)
 
-println(reversed)
+println(remove)
 
