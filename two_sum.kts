@@ -15,6 +15,24 @@ fun twoSum(nums: List<Int>, target: Int): Pair<Int, Int> {
     return Pair(first, second)
 }
 
+fun twoSumQuickSort(nums: List<Int>, target: Int): Pair<Int, Int> {
+    var leftIndex = 0
+    var rightIndex = nums.lastIndex
+
+    while(leftIndex < rightIndex) {
+        val sum = nums[leftIndex] + nums[rightIndex]
+        if ( sum == target) {
+            return Pair(nums[leftIndex], nums[rightIndex])
+        } else if (sum < target) {
+            leftIndex++
+        } else {
+            rightIndex--
+        }
+    }
+
+    return Pair(0,0)
+}
+
 val list = listOf(1, 2, 3, 4, 5)
-val pair = twoSum(list, 10)
+val pair = twoSumQuickSort(list, 7)
 println("${pair.first}, ${pair.second}")
